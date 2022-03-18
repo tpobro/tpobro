@@ -1,10 +1,350 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Yeseva+One&display=swap');
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../scss/rangeslider.css';
 
 
 $background:aqua;
+$darkFont: #252E46;
+$yesevaFont:'Yeseva One';
+$montserratFont: 'Montserrat';
 
-body {
+
+body, html {
     font-family: 'Yeseva One';
-    background-color:$background;
+    background-color: transparent;
+     max-width: 100%;
+    overflow-x: hidden;
+}
+
+hr {
+    border: none;
+}
+
+h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color:$darkFont;
+}
+
+p {
+    font-size: 0.6rem;
+    color:$darkFont;
+
+}
+
+#sliderWrapper {
+    width:685px;
+    /* -webkit-box-shadow: 0px 10px 13px -7px #000000, inset 0px 0px 5px 0px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, inset 0px 0px 5px 0px rgba(0,0,0,0); */
+}
+
+
+
+.whiteBg {
+    background-color:white;
+}
+
+.calculationSlider {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(236,236,240,1) 67%, rgba(231,231,231,1) 100%);
+    border-radius: 15px 15px 0px 0px;
+}
+
+.loanDetails {
+    color: white;
+    font-size: 0.55rem;
+    opacity: 0.7;
+    text-align: justify;
+    padding: 0px 5px 20px 5px;
+}
+
+.innerSliderText {
+    color:$darkFont;
+    font-size: 0.6rem;
+}
+
+.loanInfo {
+    padding-top: 15px;
+    color:#1c2b32;
+    font-size: 0.6rem;
+    line-height: 5px;
+}
+
+.loanInfoStatic {
+    text-align: left;
+}
+
+.divider {
+    content: ' ';
+    height:20px;
+}
+
+.dividerLarge {
+    content: ' ';
+    height:40px;
+}
+
+.form-control {
+    background-color: white !important;
+    margin-bottom: 10px;
+    border-color:#1c2b32;
+    margin-bottom: 20px;
+}
+
+.dynamicText {
+    text-align: right;
+    font-weight: 700;
+}
+
+.submitBtn {
+    font-family: $montserratFont;
+    text-transform: uppercase;
+    color:white;
+    background-color: #c39d63;
+    float:right;
+}
+
+@media only screen and (max-width: 600px) {
+    #sliderWrapper {
+        width:100%;
+
+    }
+    
+    .form-control {
+        font-size: 1rem;
+        text-align:right;
+    }
+
+    .sliderLoanInfoMobile, .loanInfoMobile {
+        padding: 0px 5px 20px 5px;
+    }
+
+    .sliderLoanInfoMobile label {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .6rem !important;
+        line-height: 0;
+    }
+
+    .form-control {
+        background-color: white !important; 
+        border-color: #1c2b32;
+        margin-bottom: 0px !important;
+    }
+
+    .btn-primary {
+        border-color: white !important;
+        font-size: 0.8rem;
+        height: 45px;
+        width: 100%;
+    }
+    .sliderLoanInfo input {
+        font-size: 0.6rem;
+        text-align: right;
+    }
+
+    .sliderLoanInfo  {
+        align-items: stretch;
+        justify-content: space-between;
+}
+
+
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px; 
+}
+
+.col-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+  }
+
+  
+  /*  RANGE SLIDER */
+  .rangeslider,
+.rangeslider__fill {
+  display: block;
+  -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  /* -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; */
+  
+}
+
+.dynamicDisclaimer {
+    color:gray;
+    font-family: $montserratFont;
+}
+
+.rangeslider {
+    background:#252e46;
+    position: relative;
+    // border: solid 10px #bebebe;
+    border-radius: 25px;
+}
+
+.rangeslider--horizontal {
+  height:45px !important; 
+}
+
+.rangeslider--vertical {
+  width: 20px;
+  min-height: 150px;
+  max-height: 100%;
+  height: 100%;
+}
+
+.rangeslider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+
+.rangeslider__fill {
+  background: #00ff00;
+  position: absolute;
+}
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%;
+}
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+  width: 100%;
+}
+
+.rangeslider__handle {
+  background: white;
+  /* border: 1px solid #ccc; */
+  cursor: pointer;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  /* margin-top: -3px; */
+  margin-left: -5px;
+  position: absolute;
+  background-size: 100%;
+
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.rangeslider__handle:after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ac8850;
+  /* background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjEzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.13)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0)); */
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.rangeslider--horizontal .rangeslider__handle {
+  top: -10px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.rangeslider--vertical .rangeslider__handle {
+  left: -10px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+  -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+
+
+.rangeslider__fill{
+    background: #ab8750;
+    border-radius: 20px;
+}
+
+.innerSliderText p {
+    font-family: $montserratFont;
+    font-weight: 500;
+  padding: 5px 10px 0px 10px;
+font-size: .7rem;
+
+color:$darkFont;
+}
+ 
+.sliderLoanInfo input{
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.sliderLoanInfo label {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: .7rem !important;
+  line-height: 0;
+}
+
+.sliderLoanInfo  {
+  width:120px;
+  background-color: white;
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+.btn-primary {
+  border-color: white !important;
+  font-size: 0.8rem;
+  height: 45px;
+  width:175px;
+}
+
+.btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  color:#c39d63;
+  background-color:white;
+ 
+}
+
+.btn-primary:hover {
+    color:#c39d63;
+    border-color: #c39d63 !important;
+    background-color:white;
+}
+
+.btn-group > .btn{
+    border-radius: 5px !important;
+    }
+
+    .btn-group-sm >.btn {
+        border-radius: 5px !important;
+        border-color: $darkFont !important;
+    width:210px !important;
+    height:50px;
+    font-size: 1em;
+    padding-top: 10px;
+    font-weight: 400;
+    
+    }
+.radioBtns.active {
+    background-color: $darkFont !important;
+    color:white;
 }
