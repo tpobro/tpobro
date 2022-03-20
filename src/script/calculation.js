@@ -57,21 +57,21 @@ window.calculateLoanContent = function (loanAmount, loanDuration, getProductType
     totalCreditCost = Math.round(totalCreditCostPrMonth * loanDuration - loanAmount);
     totalPaybackAmount = addDot(parseInt(totalCreditCost) + parseInt(loanAmount));
     var yearlyCostRateClean = irr(loanAmount, totalCreditCostPrMonth, loanDuration);
-    var yearlyCostRate = Number(yearlyCostRateClean * 100).toFixed(1);
+    var yearlyCostRate = Number(yearlyCostRateClean * 100).toFixed(2);
     totalCreditCostPrMonth = Math.round(totalCreditCostPrMonth);
 
     loanAmountInput = loanAmount;
     loanDurationInput = loanDuration;
 
 
-    console.log(' Løbetid               ', loanDuration);
-    console.log(' Lånebeløb             ', addDot(loanAmount));
-    console.log(' ÅOP                   ', yearlyCostRate.replace('.', ','));
-    console.log(' MDL ydelse            ', addDot(totalCreditCostPrMonth));
-    console.log(' ___________________________________ ');
-    console.log(' Tilbagebetalingsbeløb ', totalPaybackAmount);
-    console.log(' Saml. kreditomk       ', addDot(totalCreditCost));
-    console.log(' ___________________________________ ');
+    // console.log(' Løbetid               ', loanDuration);
+    // console.log(' Lånebeløb             ', addDot(loanAmount));
+    // console.log(' ÅOP                   ', yearlyCostRate.replace('.', ','));
+    // console.log(' MDL ydelse            ', addDot(totalCreditCostPrMonth));
+    // console.log(' ___________________________________ ');
+    // console.log(' Tilbagebetalingsbeløb ', totalPaybackAmount);
+    // console.log(' Saml. kreditomk       ', addDot(totalCreditCost));
+    // console.log(' ___________________________________ ');
 
 
     var testOutput = 'Løbetid: '+ loanDuration+'<br>Lånebeløb: '+ addDot(loanAmount)+'<br>Månedsgebyr '+invoiceFee+' kr.<br>Nom. rente : '+interests/12*100+' %<br>Stift:'+Number((100*startUpFee)-100)+' %<br>===========================<br>ÅOP: '+ yearlyCostRate.replace('.', ',')+'<br>MDL ydelse: '+addDot(totalCreditCostPrMonth)+' kr.<br>Tilbagebetalingsbeløb: '+ totalPaybackAmount+' kr.<br>Saml. kreditomk: '+addDot(totalCreditCost)+' kr.';
@@ -81,7 +81,12 @@ window.calculateLoanContent = function (loanAmount, loanDuration, getProductType
     window.$('.loanDuration').val(loanDuration+' mdr.');
     window.loanAmount = loanAmount;
     window.loanDuration = loanDuration;
-    window.$('.loanAmount').val(addDot(loanAmount)+' kr.');
+    window.$('.loanAmount').val(addDot(totalCreditCostPrMonth)+' kr.');
+    window.$('.productPrice').text(addDot(loanAmount)+' kr.');
+
+
+    
+
     //window.$('.additionalLoanAmount').val(addDot(loanAmount));
     var setLoanInfoTab = "Mit lån på "+addDot(loanAmount)+" kr. i "+loanDuration+" mdr. ";
     window.$('.loanInfoTab').text(setLoanInfoTab);
@@ -91,11 +96,12 @@ window.calculateLoanContent = function (loanAmount, loanDuration, getProductType
     $('.yearlyInterest').text(yearlyCostRate.replace('.', ',')+'%');
     $('.totalPayback').text(totalPaybackAmount+' kr.');
     $('.totalCreditCost').text(addDot(totalCreditCost)+' kr.');
+    $('.monthlyPayment').text(addDot(totalCreditCostPrMonth)+' kr.')
 
   //$('.dynamicDisclaimer').html('Årlig variabel debitorrente ' + debitorInterest+'%. Samlet kreditbeløb ' + addDot(loanAmountInput) + ' kr. ÅOP ' + yearlyCostRate.replace('.', ',') + '%. Samlet beløb, der skal betales tilbage er ' + totalPaybackAmount + ' kr. Samlede kreditomkostninger ' + addDot(totalCreditCost) + ' kr.<br>Beregningen er vejledende og forudsætter, at lånet udbetales til en konto i et pengeinstitut og at tilbagebetaling foregår via BS. Den faktiske rentesats oplyses først, når ansøgningen er godkendt.');
 
   
-var calculationText = 'Ved et samlet kreditbeløb på '+addDot(loanAmount)+' kr. over '+loanDuration+' mdr.: Månedlig ydelse '+addDot(totalCreditCostPrMonth)+' kr. Samlede kreditomkostninger '+addDot(totalCreditCost)+' kr. Samlet tilbagebetaling '+totalPaybackAmount+'kr. Årlig fast debitorrente 0,00%. ÅOP '+yearlyCostRate.replace('.', ',')+'%. Lånet kræver kreditgodkendelse. Der er fortrydelsesret. Forudsætter betaling via Mit Sparxpres.'
+var calculationText = 'Ved et samlet kreditbeløb på '+addDot(loanAmount)+' kr. over '+loanDuration+' mdr.: Månedlig ydelse '+addDot(totalCreditCostPrMonth)+' kr. Samlede kreditomkostninger '+addDot(totalCreditCost)+' kr. Samlet tilbagebetaling '+totalPaybackAmount+'kr. Årlig fast debitorrente 0,00%. ÅOP '+yearlyCostRate.replace('.', ',')+'%.<br>Lånet kræver kreditgodkendelse. Der er fortrydelsesret. Forudsætter betaling via Mit Sparxpres.'
 $('.dynamicDisclaimer').html(calculationText);
 }
 
