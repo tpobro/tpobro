@@ -40,11 +40,24 @@ p {
     box-shadow: 0px 10px 13px -7px #000000, inset 0px 0px 5px 0px rgba(0,0,0,0); */
 }
 
+.productHeadline svg{
+top:3px;
+left:5px;
+position: relative;
+cursor: pointer;
+}
+
 .radioBtns svg {
 position: absolute;
 left:10px;
-top:15px;
+top:9px;
 }
+
+.submitBtn svg {
+  position: absolute;
+  left:80px;
+  top:11px;
+  }
 
 .whiteBg {
     background-color:white;
@@ -60,9 +73,8 @@ box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.25);
 
 .loanDetails {
     color: white;
-    font-size: 0.55rem;
-    opacity: 0.7;
-    text-align: justify;
+    font-size: 0.45rem;
+    text-align: center;
     padding: 0px 5px 20px 5px;
 }
 
@@ -111,66 +123,9 @@ box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.25);
     text-transform: uppercase;
     color:white;
     background-color: $darkBlueFont;
+    border-radius: 30px;
+    padding-left: 50px;
 }
-
-@media only screen and (max-width: 600px) {
-    #sliderWrapper {
-        width:100%;
-
-    }
-    
-    .form-control {
-        font-size: 1rem;
-        text-align:right;
-    }
-
-    .sliderLoanInfoMobile, .loanInfoMobile {
-        padding: 0px 5px 20px 5px;
-    }
-
-    .sliderLoanInfoMobile label {
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: .6rem !important;
-        line-height: 0;
-    }
-
-    .form-control {
-        background-color: white !important; 
-        border-color: #1c2b32;
-        margin-bottom: 0px !important;
-    }
-
-    .btn-primary {
-        border-color: white !important;
-        font-size: 0.8rem;
-        height: 45px;
-        width: 100%;
-    }
-    .sliderLoanInfo input {
-        font-size: 0.6rem;
-        text-align: right;
-    }
-
-    .sliderLoanInfo  {
-        align-items: stretch;
-        justify-content: space-between;
-}
-
-
-
-.row {
-    margin-right: 0px;
-    margin-left: 0px; 
-}
-
-.col-4 {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-
-  }
 
   
   /*  RANGE SLIDER */
@@ -185,7 +140,7 @@ box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.25);
 }
 
 .dynamicDisclaimer {
-    color:gray;
+    color: $lightBlueFont;
     font-family: $montserratFont;
 }
 
@@ -198,8 +153,8 @@ box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.25);
 
 .rangeslider--horizontal {
   height:45px !important; 
-  -webkit-box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.25); 
-box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15); 
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
 }
 
 .rangeslider--vertical {
@@ -347,23 +302,20 @@ color:$darkBlueFont;
     .btn-group-sm >.btn {
         border-radius: 5px !important;
         width:210px !important;
-        height:50px;
+        height:40px;
         font-size: 1em;
         padding-top: 10px;
         font-weight: 400;
         text-align: left;
-        padding: 14px 0px 0px 40px;
+        padding: 9px 0px 0px 40px;
     }
 
     #productSelector .radioBtns {
-      border-color: $darkFont !important;
+      border-color: #d8dce0 !important;
       color:#9cafbd;
+      border-radius: 10px !important;
+transition: border-radius ease 1s;
 
-    }
-    #productSelector .radioBtns.active {
-     // border-color:  !important;
-      color:white;
-      background: #dde8f0;
     }
 
     .radioBtns {   
@@ -373,6 +325,7 @@ color:$darkBlueFont;
 
     #productAmountSelector .radioBtns:nth-child(1) {
       background:#b3c3d3;
+      
     }
     #productAmountSelector .radioBtns:nth-child(2) {
       background:#47aca5;
@@ -382,15 +335,29 @@ color:$darkBlueFont;
       background:#ecd3e7;
     }
 
+    #productSelector .radioBtns {
+      // border-color:  !important;
+      color:white;
+      background: $lightBlueFont;
+     }
+ 
+     #productSelector .radioBtns.active {
+       // border-color:  !important;
+       color:$darkBlueFont;
+       background: #dde8f0;
+       
+      }
+ 
+
    
 .btn.focus {
   box-shadow: none !important;
 }
 
 .radioBtns.active {
-
-    // color:white;
-    opacity: 0.75;
+   background-color: white !important;
+   color:$darkBlueFont;
+   border: 1px solid $lightBlueFont;
 }
 
 .monthlyPaymentWrapper, .loanAmountWrapper {
@@ -425,3 +392,93 @@ color:$darkBlueFont;
     padding-top:2px;
     padding-left: 5px;
 }
+
+
+@media only screen and (max-width: 667px) {
+  
+  #sliderWrapper {
+      width:100%;
+
+  }
+
+  .monthlyPaymentWrapper h2 {
+    font-size: 1em;
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+#productAmountSelector{
+  font-size: 0.9em;
+}
+
+.loanDetails {
+  font-size: 0.35rem;
+  text-align: center;
+  padding: 14px 5px 20px 5px;
+}
+
+.monthlyPaymentWrapper p {
+  font-family: "Montserrat";
+  font-size: 0.5em  !important;
+  padding-top: 7px !important;
+}
+
+  .submitBtn svg {
+    position: absolute;
+    left:70px;
+    top:11px;
+    }
+  
+  .form-control {
+      font-size: 1rem;
+      text-align:right;
+  }
+
+  .sliderLoanInfoMobile, .loanInfoMobile {
+      padding: 0px 5px 20px 5px;
+  }
+
+  .sliderLoanInfoMobile label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: .6rem !important;
+      line-height: 0;
+  }
+
+  .form-control {
+      background-color: white !important; 
+      border-color: #1c2b32;
+      margin-bottom: 0px !important;
+  }
+
+  .btn-primary {
+      border-color: white !important;
+      font-size: 0.8rem;
+      height: 45px;
+      width: 100%;
+  }
+  .sliderLoanInfo input {
+      font-size: 0.6rem;
+      text-align: right;
+  }
+
+  .sliderLoanInfo  {
+      align-items: stretch;
+      justify-content: space-between;
+}
+
+
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px; 
+}
+
+.col-4 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+}
+
