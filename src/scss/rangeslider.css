@@ -1,9 +1,7 @@
 .rangeslider,
 .rangeslider__fill {
   display: block;
-  -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+
   /* -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px; */
@@ -13,8 +11,9 @@
 .rangeslider {
   background:#1c2b32;
   position: relative;
-  border: solid 10px white;
-  border-radius: 5px;
+  border: solid 6px white;
+  border-radius: 5px;  
+  
 }
 
 .rangeslider--horizontal {
@@ -58,12 +57,7 @@
   position: absolute;
   background-size: 100%;
 
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.5);
-  -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.5);
-  box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.5);
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+ 
 }
 .rangeslider__handle:after {
   content: "";

@@ -9,6 +9,7 @@ var totalCreditCost = null;
 var hovedStol = null;
 var loanAmount = 50000;
 var loanDurationInMonths;
+var totalPaybackAmount;
 
 function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -30,8 +31,9 @@ window.calculateLoanContent = function (loanAmount, loanDuration, getProductType
 
     console.log(loanAmount, loanDuration, getProductType)
 
+    $('.durationText').html(loanDuration + ' mdr.');
    
-   hovedstol = loanAmount * startUpFee;
+   var hovedstol = loanAmount * startUpFee;
 
    if(getProductType == 0){
     interests = 0.000001;
@@ -51,17 +53,17 @@ window.calculateLoanContent = function (loanAmount, loanDuration, getProductType
 
     
     monthlyInterest = interests / 12;
-    tempInterest = interests / 12 * 100;
+    var tempInterest = interests / 12 * 100;
     tempInterest = Math.round(tempInterest * 100) / 100 + interests * 100;
     totalCreditCostPrMonth = hovedstol * monthlyInterest / (1 - (Math.pow((1 + monthlyInterest), -loanDuration))) + invoiceFee;
     totalCreditCost = Math.round(totalCreditCostPrMonth * loanDuration - loanAmount);
     totalPaybackAmount = addDot(parseInt(totalCreditCost) + parseInt(loanAmount));
     var yearlyCostRateClean = irr(loanAmount, totalCreditCostPrMonth, loanDuration);
     var yearlyCostRate = Number(yearlyCostRateClean * 100).toFixed(2);
-    totalCreditCostPrMonth = Math.round(totalCreditCostPrMonth);
+    var totalCreditCostPrMonth = Math.round(totalCreditCostPrMonth);
 
-    loanAmountInput = loanAmount;
-    loanDurationInput = loanDuration;
+   var loanAmountInput = loanAmount;
+   var loanDurationInput = loanDuration;
 
 
     // console.log(' Løbetid               ', loanDuration);

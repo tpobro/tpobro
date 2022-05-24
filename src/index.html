@@ -15,38 +15,51 @@
 
     <div id="sliderWrapper">
         <hr>
+        <!-- <img src="assets/button-icon.png"> -->
         <div class="whiteBg row col-12 col-md-10">
+       
             <!-- SLIDERS START -->
             <div class="container">
+                <hr>
                 <!-- <h2>beregn dit lån kokher</h2> -->
-                <div id="productSelector"
-                    class="d-flex justify-content-between multiChoiceBtn btn-group-sm btn-group-toggle"
-                    data-toggle="buttons">
-                    <label class="col-3 col-md-3 btn radioBtns float-right">
-                        <input type="radio" class="productValue" value="0" name="options">Rentefri
-                    </label>
-                    <label class="col-3 col-md-3 btn radioBtns active">
-                        <input type="radio" class="productValue" value="1" name="options">Rentebærende
-                    </label>
-
-                </div>
+                <h2 style="text-align: center;">1. Vælg produkt</h2>
                 <hr>
                 <div id="productAmountSelector"
                     class="d-flex justify-content-between multiChoiceBtn btn-group-sm btn-group-toggle"
                     data-toggle="buttons">
-                    <label class="col-3 col-md-4 btn radioBtns">
-                        <input type="radio" class="productValue" value="30000" name="Lite">Lite
+                    <label class="col-4 col-md-4 btn radioBtns mr-1">
+                        <input type="radio" class="productValue" value="30000" name="Lite">Small
                     </label>
 
-                    <label class="col-3 col-md-4 btn radioBtns">
+                    <label class="col-4 col-md-4 btn radioBtns mr-1">
                         <input type="radio" class="productValue" value="38000" name="Medium">Medium
                     </label>
 
-                    <label class="col-3 col-md-4 btn radioBtns active">
-                        <input type="radio" class="productValue" value="48000" name="Stor">Stor
+                    <label class="col-4 col-md-4 btn radioBtns active mr-1">
+                        <input type="radio" class="productValue" value="48000" name="Stor">Large
                     </label>
                 </div>
+                <hr>
+                
+            <h2 style="text-align: center;">2. Vælg finansieringstype</h2>
+                <hr>
+            <div id="productSelector"
+                class="d-flex multiChoiceBtn btn-group-sm btn-group-toggle"
+                data-toggle="buttons">
+                <div class="col-1 d-none d-sm-block"></div>
+                <label class="col-6 col-md-5 btn radioBtns float-right ">
+                    
+                    <input type="radio" class="productValue" value="0" name="options">Rentefri
+                </label>
+                <label class="col-6 col-md-5 btn radioBtns active ml-1">
+                    <input type="radio" class="productValue" value="1" name="options">Rentebærende
+                </label>
+                <div class="col-1 d-none .d-sm-block"></div>
+
             </div>
+            <hr>
+            </div>
+
             <div class="calculationSlider col-12">
                 <hr>
                 <input class="durationSlider" type="range" value="30" step="10" min="10" max="60">
@@ -59,19 +72,19 @@
                 <div class="dividerLarge"></div>
                 <div class="float-right">
                     <div class="monthlyPaymentWrapper">
-                        <p>Din månedlige ydelse</p>
+                        <p>Din månedlige ydelse&nbsp;</p>
                         <h2 class="monthlyPayment"></h2>
+                        <p>&nbsp;over&nbsp;&nbsp;</p>
+                        <h2 class="durationText"></h2>
                     </div>
-                    <div class="loanAmountWrapper">
-                        <p class="productNameText"></p>
-                        <h2 class="productPrice"></h2>
-                    </div>
+                  
                 </div> <div class="row"></div>
               
-                   
-              
-                <button type="button" class="btn btn-primary submitBtn">Gå til ansøgning</button>
-         
+                   <div class="container">
+               
+                <button type="button" class="offset-md-2 col-md-8 align-self-center btn btn-primary submitBtn">Gå til ansøgning</button>
+           
+        </div>
                 <div class="divider d-none d-sm-block"></div> 
                 <label class="loanDetails dynamicDisclaimer formWrapper"></label>
 
@@ -80,7 +93,6 @@
 
                 <div class="divider d-none d-sm-block"></div>
             </div>
-
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
